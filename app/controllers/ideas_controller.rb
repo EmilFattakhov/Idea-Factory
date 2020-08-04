@@ -43,7 +43,7 @@ class IdeasController < ApplicationController
     def destroy
         flash[:notice] = 'Idea destroyed'
         @idea.destroy
-        redirect_to idea_path
+        redirect_to ideas_path
     end
 
     private
@@ -59,8 +59,4 @@ class IdeasController < ApplicationController
     def authorize! 
         redirect_to root_path, alert: 'Not Authorized' unless can?(:crud, @idea)
     end
-
-    
-
-    
 end

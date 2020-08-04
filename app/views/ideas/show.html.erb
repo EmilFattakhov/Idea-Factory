@@ -36,7 +36,7 @@
        <%= f.text_area(
            :body,
            cols: 50,
-           rows: 5,
+           rows: 2,
            placeholder: "What is your review?",
            class: "form-control"
        )%>
@@ -52,7 +52,7 @@
             <p>
                 <%= review.body %>
             </p>
-            <small>
+            
             <% if can? :crud, review %>
              <%= link_to(
                  "Delete",
@@ -63,7 +63,7 @@
                  },
                  class: "btn btn-danger btn-sm"
              )%>
-            </small>
+            
             |
             <% end %>
             <small>

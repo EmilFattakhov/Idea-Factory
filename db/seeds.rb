@@ -10,6 +10,7 @@
 Idea.delete_all
 User.delete_all
 Review.delete_all
+Like.delete_all
 
 NUM_IDEAS = 20
 NUM_USERS = 10
@@ -46,6 +47,7 @@ NUM_IDEAS.times do
                 user: users.sample
             )
         end
+        i.likers = users.shuffle.slice(0, rand(users.count))
     end
 end
 
@@ -55,5 +57,6 @@ review = Review.all
 puts Cowsay.say("Generated #{users.count} users", :frogs)
 puts Cowsay.say("Generated #{idea.count} ideas", :tux)
 puts Cowsay.say("Generated #{review.count} reviews for ideas", :bunny)
+puts Cowsay.say("Generated #{Like.count} likes for questions", :bunny)
 
 
