@@ -1,4 +1,4 @@
-<h1>User New Page</h1>
+<h1 class='p-3 mb-2'>User New Page</h1>
 <% if @user.errors.present? %>
     <p>
         <%= @user.errors.full_messages.join(', ') %>
@@ -32,6 +32,6 @@
             <%= f.password_field :password_confirmation, class: 'form-control' %>
         </div>
 
-        <%= f.submit 'Create User', class: 'btn btn-primary' %>
+        <%= f.submit 'Create User', class: 'btn' %>
     <% end %>
 </div>

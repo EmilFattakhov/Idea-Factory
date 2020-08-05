@@ -14,3 +14,64 @@
  */
 
  @import "bootstrap";
+
+body {
+     background-image: url(/assets/paper.png);
+     background-size: 50%;
+     opacity: 0.8;
+     font-family: Chilanka;
+ }
+
+ .navbar {
+     margin: 2em;
+
+ }
+
+ .for-index-page {
+     color: black;
+     margin: auto 1% auto 2%;
+ }
+ a {
+     color: black;
+ }
+
+ a:hover {
+     transform: scale(1.1);
+ }
+
+ li {
+    list-style-type: none ;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+ }
+
+ .navbar-nav:hover {
+    transform: scale(1.1);
+ }
+
+ h2:hover{
+    transform: scale(1.1);
+    color: black;
+    background-color: lightgrey;
+ }
+
+ a:hover {
+     color: black;
+ }
+
+ button {
+     border: 8px solid darkgrey;
+     border-radius: 7%;
+     transform: scale(1.2);
+ }
+
+.form-group {
+    padding-left: 2em;
+}
+
+.btn {
+    border: 7px solid darkgrey;
+    border-radius: 10%;
+}

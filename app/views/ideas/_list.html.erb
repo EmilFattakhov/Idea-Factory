@@ -1,8 +1,6 @@
-<div class="row">
-    <div class="=col-2">
-    </div>
-
-    <div class="col-10">
+<div class="row for-index-page">
+    
+    <div class="for-index-page">
     <% @ideas.each do |idea| %>
         <div>
             <h2><%= link_to idea.title, idea_path(idea) %></h2>
@@ -13,14 +11,14 @@
         <div>
             <h6>By <%= idea.user.first_name %> </h6>
         </div>
-        <small>Liked by: <%= pluralize idea.likes.count, 'like' %> </small>
+        <small>This idea has: <%= pluralize idea.likes.count, 'like' %> </small>
         <% if user_signed_in?%>
-        <% like = current_user.likes.find_by_idea_id(idea) %>
-        <% if like %>
-          <%= link_to 'Unlike', like_path(like), method: :delete %>
-        <% else %>
-          <%= link_to 'Like', idea_likes_path(idea), method: :post %>
-        <% end %>
+          <% like = current_user.likes.find_by_idea_id(idea) %>
+            <% if like %>
+            <%= link_to 'Unlike', like_path(like), method: :delete %>
+            <% else %>
+            <%= link_to 'Like', idea_likes_path(idea), method: :post %>
+          <% end %>
       <% end %>
       
         <hr />

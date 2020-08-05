@@ -1,12 +1,12 @@
 <div class="shadow-sm p-3 mb-5 bg-white rounded overflow-wrap">
     <h1>
-        <span class="badge badge-pill badge-info">
+        <span class="badge badge-pill">
             <%= @idea.title %>
         </span>
     </h1>
-    <p class="shadow-none p-3 mb-5 bg-light rounded"><%= @idea.body %></p>
-    <p class="text-muted"><%= @idea.user.full_name %></p>
-    <p>
+    <p class="shadow-none p-3 mb-5 rounded"><%= @idea.body %></p>
+    <p class="p-3 mb-1 text-muted"><%= @idea.user.full_name %></p>
+    <p class='p-3 mr-2'>
         <%= @idea.created_at %>
     </p>
     <% if can? :crud, @idea %>
@@ -32,7 +32,7 @@
         </ul>
     <% end %>
 
-    <div class="form-group">
+    <div class="form-group p-3">
        <%= f.text_area(
            :body,
            cols: 50,
@@ -40,9 +40,10 @@
            placeholder: "What is your review?",
            class: "form-control"
        )%>
+       <%= f.submit "Create Review", class: "button" %>
     </div>
 
-    <%= f.submit "Create Review", class: "btn-primary" %>
+    
 
 <% end %>
 
