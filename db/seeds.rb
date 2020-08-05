@@ -12,7 +12,7 @@ User.delete_all
 Review.delete_all
 Like.delete_all
 
-NUM_IDEAS = 20
+NUM_IDEAS = 19
 NUM_USERS = 10
 PASSWORD = 'supersecret'
 

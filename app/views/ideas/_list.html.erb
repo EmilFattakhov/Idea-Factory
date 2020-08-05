@@ -12,12 +12,12 @@
             <h6>By <%= idea.user.first_name %> </h6>
         </div>
         <small>This idea has: <%= pluralize idea.likes.count, 'like' %> </small>
-        <% if user_signed_in?%>
+        <% if user_signed_in? %>
           <% like = current_user.likes.find_by_idea_id(idea) %>
             <% if like %>
-            <%= link_to 'Unlike', like_path(like), method: :delete %>
+            <%= link_to 'Unlike', like_path(like), method: :delete, class: "btn btn-dark ml-5" %>
             <% else %>
-            <%= link_to 'Like', idea_likes_path(idea), method: :post %>
+            <%= link_to 'Like', idea_likes_path(idea), method: :post, class: "btn btn-danger ml-5" %>
           <% end %>
       <% end %>
       

@@ -16,7 +16,7 @@
  @import "bootstrap";
 
 body {
-     background-image: url(/assets/paper.png);
+     background-image: url(/assets/paper6.png);
      background-size: 50%;
      opacity: 0.8;
      font-family: Chilanka;
@@ -74,4 +74,15 @@ body {
 .btn {
     border: 7px solid darkgrey;
     border-radius: 10%;
+}
+
+.brand {
+    font-size: 2rem;
+    margin-left: 0.5em;
+    font-weight: bolder;
+    color: darkred;
+}
+
+.nav-links {
+    font-weight: bolder;
 }

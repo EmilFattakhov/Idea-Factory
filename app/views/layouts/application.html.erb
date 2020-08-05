@@ -11,7 +11,7 @@
 
   <body>
   <nav class="navbar navbar-expand-md navbar-light bg-light">
-        <a class="navbar-brand" href="/">Ideas</a>
+        <a class="brand" id="brand" href="/">Ideas</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -20,22 +20,24 @@
 
             </ul>
             <ul class="navbar-nav navigation-links">
-                <li class="nav-item nav-links">
+                <li class="nav-item nav-links mt-3">
                     <%= link_to 'New Idea', new_idea_path %>
                 </li>
-                <li class="nav-item nav-links">
+                <% if !user_signed_in? %>
+                <li class="nav-item nav-links mt-3">
                     <%= link_to 'Sign up', new_user_path %>
                 </li>
+                <% end %>
                   <% if user_signed_in? %>
-                    <li class="nav-item nav-links">
-                        <a><%= current_user.full_name %></a>
+                    <li class="nav-item nav-links mt-3">
+                        <a> User: <%= current_user.full_name %></a>
                     </li>
                     
                     <li class="nav-item nav-links">
                       <%= link_to "Log Out", session_path, method: :delete, class: 'btn btn-danger' %>
                     </li>
                   <% else %>
-                      <li class="nav-item nav-links">
+                      <li class="nav-item nav-links mt-3">
                         <%= link_to "Sign In", new_session_path %>
                       </li>
                   <% end %>
