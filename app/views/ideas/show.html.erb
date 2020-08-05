@@ -1,0 +1,76 @@
+<div class="shadow-sm p-3 mb-5 bg-white rounded overflow-wrap">
+    <h1>
+        <span class="badge badge-pill">
+            <%= @idea.title %>
+        </span>
+    </h1>
+    <p class="shadow-none p-3 mb-5 rounded"><%= @idea.body %></p>
+    <p class="p-3 mb-1 text-muted"><%= @idea.user.full_name %></p>
+    <p class='p-3 mr-2'>
+        <%= @idea.created_at %>
+    </p>
+    <% if can? :crud, @idea %>
+        <div>
+            <%= link_to "Edit", edit_idea_path(@idea), class: 'btn btn-info' %>
+            <%= link_to "Delete", idea_path(@idea), 
+                method: :delete, 
+                class: 'btn btn-danger',
+                data: { confirm: "Are you sure?" } 
+            %>
+        </div>
+    <% end %>
+</div>
+
+<hr />
+
+<%= form_with(model: [@idea, @review], local: true) do |f| %>
+    <% if @review.errors.any? %>
+        <ul>
+            <% @review.errors.full_messages.each do |msg| %>
+                <li class="text-danger"><%= msg %></li>
+            <% end %>
+        </ul>
+    <% end %>
+
+    <div class="form-group p-3">
+       <%= f.text_area(
+           :body,
+           cols: 50,
+           rows: 2,
+           placeholder: "What is your review?",
+           class: "form-control"
+       )%>
+       <%= f.submit "Create Review", class: "button" %>
+    </div>
+
+    
+
+<% end %>
+
+<ul class="list-group answer-list">
+    <% @reviews.each do |review| %>
+        <li class="list-group-item">
+            <p>
+                <%= review.body %>
+            </p>
+            
+            <% if can? :crud, review %>
+             <%= link_to(
+                 "Delete",
+                 idea_review_path(@idea, review),
+                 method: :delete,
+                 data: {
+                     confirm: "Are you sure?"
+                 },
+                 class: "btn btn-danger btn-sm"
+             )%>
+            
+            |
+            <% end %>
+            <small>
+                Reviewed <%= time_ago_in_words(review.created_at) %> By <strong><%= review.user.full_name %></strong>
+            </small>
+            </p>
+        </li>
+    <% end %>
+</ul>
